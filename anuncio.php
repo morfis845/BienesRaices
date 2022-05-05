@@ -11,6 +11,9 @@ if(!$id){
 
 $query = "SELECT * FROM propiedades WHERE id=${id}";
 $resultado = mysqli_query($db, $query);
+if(!$resultado->num_rows){
+    header('Location: /');
+}
 $propiedad = mysqli_fetch_assoc($resultado);
 ?>
 

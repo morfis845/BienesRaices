@@ -1,0 +1,1 @@
+import alertaF from"./alertas.js";const botonCrearPropiedad=document.querySelector(".iniciar-sesion");botonCrearPropiedad.addEventListener("click",alertaF());

@@ -1,4 +1,9 @@
 <?php
+require '../../includes/funciones.php';
+$auth = autenticado();
+if(!$auth){
+    header('Location: /');
+}
 $resultadoM = $_GET['resultado'] ?? null;
 
 //Base de datos
@@ -105,7 +110,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require '../../includes/funciones.php';
 incluirTemplate('header');
 ?>
 

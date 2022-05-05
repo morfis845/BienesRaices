@@ -1,5 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +12,7 @@
 </head>
 
 <body>
-    <header class="header <?php echo $inicio ? 'inicio' : '';?>">
+    <header class="header <?php echo $inicio ? 'inicio' : ''; ?>">
         <div class="contenedor contenido-header">
             <div class="barra">
                 <a href="/index.php"><img src="/public/build/img/logo.svg" alt="Logotipo Bienes Raices"></a>
@@ -22,6 +24,12 @@
                     <?php include 'nav.php' ?>
                 </div>
             </div>
+            <?php
+            if ($inicio) {
+                echo "<h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>";
+            }
+            ?>
         </div>
         <!--.barra-->
+
     </header>
