@@ -1,5 +1,8 @@
 <?php require 'includes/funciones.php';
 incluirTemplate('header', true);
+
+
+
 ?>
 
 <main class="contenedor seccion">
@@ -26,93 +29,10 @@ incluirTemplate('header', true);
 <section class="seccion contenedor">
     <h2>Casas y Departamentos en Venta</h2>
     <div class="contenedor-anuncios">
-        <div class="anuncio">
-            <picture>
-                <source srcset="public/build/img/anuncio1.webp" type="image/webp">
-                <source srcset="public/build/img/anuncio1.jpg" type="image/jpeg">
-                <img src="public/build/img/anuncio1.jpg" alt="ununcio" loading="lazy">
-            </picture>
-            <div class="contenido-anuncio">
-                <h3>Casa de Lujo en el Lago</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                <p class="precio">3,000,000</p>
-                <ul class="iconos-caracteristicas">
-                    <li><img src="public/build/img/icono_wc.svg" alt="icono wc">
-                        <p>3</p>
-                    </li>
-                    <li><img src="public/build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-                        <p>3</p>
-                    </li>
-                    <li><img src="public/build/img/icono_dormitorio.svg" alt="icono dormitorio">
-                        <p>4</p>
-                    </li>
-
-                </ul>
-                <a href="anuncio.php" class="boton-amarillo-block">
-                    Ver Propiedad
-                </a>
-            </div>
-            <!--.contenido-anuncio-->
-        </div>
-        <!--.anuncio-->
-        <div class="anuncio">
-            <picture>
-                <source srcset="public/build/img/anuncio2.webp" type="image/webp">
-                <source srcset="public/build/img/anuncio2.jpg" type="image/jpeg">
-                <img src="public/build/img/anuncio2.jpg" alt="ununcio" loading="lazy">
-            </picture>
-            <div class="contenido-anuncio">
-                <h3>Casa Terminados de Lujo</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                <p class="precio">3,000,000</p>
-                <ul class="iconos-caracteristicas">
-                    <li><img src="public/build/img/icono_wc.svg" alt="icono wc">
-                        <p>3</p>
-                    </li>
-                    <li><img src="public/build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-                        <p>3</p>
-                    </li>
-                    <li><img src="public/build/img/icono_dormitorio.svg" alt="icono dormitorio">
-                        <p>4</p>
-                    </li>
-
-                </ul>
-                <a href="anuncio.php" class="boton-amarillo-block">
-                    Ver Propiedad
-                </a>
-            </div>
-            <!--.contenido-anuncio-->
-        </div>
-        <!--.anuncio-->
-        <div class="anuncio">
-            <picture>
-                <source srcset="public/build/img/anuncio3.webp" type="image/webp">
-                <source srcset="public/build/img/anuncio3.jpg" type="image/jpeg">
-                <img src="public/build/img/anuncio3.jpg" alt="ununcio" loading="lazy">
-            </picture>
-            <div class="contenido-anuncio">
-                <h3>Casa con Alberca</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                <p class="precio">3,000,000</p>
-                <ul class="iconos-caracteristicas">
-                    <li><img src="public/build/img/icono_wc.svg" alt="icono wc">
-                        <p>3</p>
-                    </li>
-                    <li><img src="public/build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-                        <p>3</p>
-                    </li>
-                    <li><img src="public/build/img/icono_dormitorio.svg" alt="icono dormitorio">
-                        <p>4</p>
-                    </li>
-
-                </ul>
-                <a href="anuncio.php" class="boton-amarillo-block">
-                    Ver Propiedad
-                </a>
-            </div>
-            <!--.contenanuncioido-anuncio-->
-        </div>
-        <!--.anuncio-->
+        <?php 
+        $limite = 3;
+        include 'includes/templates/anuncios.php'
+        ?>
     </div>
     <!--.contenedor-anuncios-->
     <div class="alinear-derecha">
@@ -158,7 +78,7 @@ incluirTemplate('header', true);
             <div class="texto-entrada">
                 <a href="entrada.php">
                     <h4>Guía para la decoracion de tu hogar</h4>
-                    <p class="infromacion-meta">Escrito el: <span>03/05/2022</span>por: <span>Admin</span></p>
+                    <p class="informacion-meta">Escrito el: <span>03/05/2022</span>por: <span>Admin</span></p>
                     <p>
                         Maximiza el espacio en tu hogar con esta guía, aprende a combinar muebles y colores para darle vida a tu espacio.
                     </p>

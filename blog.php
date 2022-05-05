@@ -14,7 +14,7 @@ incluirTemplate('header');
         <div class="texto-entrada">
             <a href="entrada.php">
                 <h4>Terraza en el techo de tu casa</h4>
-                <p>Escrito el: <span>03/05/2022</span>por: <span>Admin</span></p>
+                <p class="informacion-meta">Escrito el: <span>03/05/2022</span>por: <span>Admin</span></p>
                 <p>
                     Consejos para construir una terraza en el techo de tu casa con los mejores materiales y
                     ahorrando dinero.
@@ -33,7 +33,7 @@ incluirTemplate('header');
         <div class="texto-entrada">
             <a href="entrada.php">
                 <h4>Guía para la decoracion de tu hogar</h4>
-                <p>Escrito el: <span>03/05/2022</span>por: <span>Admin</span></p>
+                <p class="informacion-meta">Escrito el: <span>03/05/2022</span>por: <span>Admin</span></p>
                 <p>
                     Maximiza el espacio en tu hogar con esta guía, aprende a combinar muebles y colores para darle
                     vida a tu espacio.
@@ -52,7 +52,7 @@ incluirTemplate('header');
         <div class="texto-entrada">
             <a href="entrada.php">
                 <h4>Guía para la decoracion de tu hogar</h4>
-                <p>Escrito el: <span>03/05/2022</span>por: <span>Admin</span></p>
+                <p class="informacion-meta">Escrito el: <span>03/05/2022</span>por: <span>Admin</span></p>
                 <p>
                     Maximiza el espacio en tu hogar con esta guía, aprende a combinar muebles y colores para darle
                     vida a tu espacio.
@@ -71,7 +71,7 @@ incluirTemplate('header');
         <div class="texto-entrada">
             <a href="entrada.php">
                 <h4>Guía para la decoracion de tu hogar</h4>
-                <p>Escrito el: <span>03/05/2022</span>por: <span>Admin</span></p>
+                <p class="informacion-meta">Escrito el: <span>03/05/2022</span>por: <span>Admin</span></p>
                 <p>
                     Maximiza el espacio en tu hogar con esta guía, aprende a combinar muebles y colores para darle
                     vida a tu espacio.

@@ -1,0 +1,1 @@
+import alertaF from"./alertas.js";const botonCrearPropiedad=document.querySelector(".crear-propiedad");botonCrearPropiedad.addEventListener("click",alertaF());

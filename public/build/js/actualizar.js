@@ -1,0 +1,1 @@
+import alertaF from"./alertas.js";window.addEventListener("DOMContentLoaded",(function(){document.querySelectorAll(".remover").length>0&&alertaF()}));

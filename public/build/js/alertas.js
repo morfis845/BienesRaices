@@ -1,0 +1,1 @@
+const alerta=document.querySelectorAll(".remover"),removerAlerta=function(){setTimeout(()=>{alerta.forEach(e=>{e.remove()})},5e3)};export default removerAlerta;
