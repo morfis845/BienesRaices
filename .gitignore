@@ -4,3 +4,7 @@ gulpfile.js
 package-lock.json
 package.json
 usuario.php
+composer.json
+composer.lock
+
+/vendor/

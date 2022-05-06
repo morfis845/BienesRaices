@@ -1,7 +1,6 @@
-<?php require 'includes/funciones.php';
+<?php require 'includes/app.php';
 incluirTemplate('header');
 
-require 'includes/config/database.php';
 $db = conectarDB();
 $id = $_GET['id'] ?? null;
 $id = filter_var($id, FILTER_VALIDATE_INT);
