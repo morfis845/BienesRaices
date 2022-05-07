@@ -5,6 +5,7 @@ autenticado();
 
 use App\Propiedad;
 
+
 //Implementar un metodo para obtener todas las propiedades
 $propiedades = Propiedad::getAll();
 
@@ -18,19 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
     $id = filter_var($id, FILTER_VALIDATE_INT);
     if ($id) {
-        //Eliminar la imagen
-        $query = "SELECT imagen FROM propiedades WHERE id=${id}";
-        $resultado = mysqli_query($db, $query);
-        $propiedad = mysqli_fetch_assoc($resultado);
-        unlink('../imagenes/' . $propiedad['imagen']);
-        //Elimina la propiedad
-        $query = "DELETE FROM propiedades WHERE id=${id}";
-        $resultado = mysqli_query($db, $query);
-        if ($resultado) {
-            header('Location: /admin?resultado=2');
-        }
+        $propiedad = Propiedad::find($id);
+        $propiedad->eliminar('/admin');
     }
-    var_dump($query);
 }
 
 // echo "<pre>";
@@ -42,17 +33,15 @@ incluirTemplate('header');
 
 <main class="contenedor seccion">
     <h1>Admin</h1>
-    <?php if (intval($resultadoM) === 1) { ?>
-        <div class="alerta exito remover actualizar-propiedad">
-            El auncio se ha actualizado con exito
+    <?php
+    $mensaje = mostrarNotificacion(intval($resultadoM));
+    if ($mensaje) : ?>
+        <div class="alerta exito remover">
+            <?php echo s($mensaje); ?>
         </div>
-    <?php } ?>
-    <?php if (intval($resultadoM) === 2) { ?>
-        <div class="alerta exito remover actualizar-propiedad">
-            El auncio se ha eliminado con exito
-        </div>
-    <?php } ?>
+    <?php endif; ?>
     <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
+    <h2>Propiedades</h2>
     <table class="propiedades">
         <thead>
             <tr>
@@ -65,13 +54,13 @@ incluirTemplate('header');
         </thead>
         <tbody>
             <!--Mostrar los resultados-->
-            <?php foreach($propiedades as $propiedad) : ?>
+            <?php foreach ($propiedades as $propiedad) : ?>
 
                 <tr>
                     <td><?php echo $propiedad->id; ?></td>
                     <td><?php echo $propiedad->titulo; ?></td>
                     <td><img src="/imagenes/<?php echo $propiedad->imagen; ?>" class="imagen-tabla" alt=""></td>
-                    <td>$ <?php echo $propiedad->precio; ?></td>
+                    <td>$ <?php echo number_format($propiedad->precio); ?></td>
                     <td>
                         <form method="POST" class="w-100">
                             <input type="hidden" name="id" value="<?php echo $propiedad->id; ?>">

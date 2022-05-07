@@ -29,3 +29,22 @@ function s($html): string{
     $s = htmlspecialchars($html);
     return $s;
 }
+function mostrarNotificacion($codigo){
+    $mensaje = '';
+
+    switch($codigo){
+        case 1: 
+            $mensaje = "Creado Correctamente";
+            break;
+        case 2:
+            $mensaje = "Actualizado Correctamente";
+            break;
+        case 3:
+            $mensaje = "Borrado Correctamente";
+            break;
+        default: 
+            $mensaje = false;
+            break;
+    }
+    return $mensaje;
+}

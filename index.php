@@ -29,8 +29,7 @@ incluirTemplate('header', true);
 <section class="seccion contenedor">
     <h2>Casas y Departamentos en Venta</h2>
     <div class="contenedor-anuncios">
-        <?php 
-        $limite = 3;
+        <?php
         include 'includes/templates/anuncios.php'
         ?>
     </div>

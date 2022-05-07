@@ -4,31 +4,23 @@ require '../../includes/app.php';
 use App\Propiedad;
 use Intervention\Image\ImageManagerStatic as Image;
 
+$propiedad = new Propiedad;
 
 autenticado();
 $resultadoM = $_GET['resultado'] ?? null;
-
-//Base de datos
-
-$db = conectarDB();
-
-$propiedad = new Propiedad;
-
-//Consulta obtener vendedores
-$consulta = "SELECT * FROM vendedores;";
-$resultado = mysqli_query($db, $consulta);
 
 //Arreglo con mensajes de errores
 $errores = Propiedad::getErrores();
 //Ejecutar el codigo despues de que el usuario envia el formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $propiedad = new Propiedad($_POST);
+    $propiedad = new Propiedad($_POST['propiedad']);
+
 
     //Generar nombre unico imagen
     $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
     //Setear la imagen
-    if ($_FILES['imagen']['tmp_name']) {
-        $image = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 600);
+    if ($_FILES['propiedad']['tmp_name']['imagen']) {
+        $image = Image::make($_FILES['propiedad']['tmp_name']['imagen'])->fit(800, 600);
         $propiedad->setImagen($nombreImagen);
     }
     $errores = $propiedad->validar();
@@ -40,12 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //Guarda la imagen en el servidor
         $image->save(CARPETAS_IMAGENES . $nombreImagen);
         //Guarda en la base de datos
-        $resultado = $propiedad->guardar();
-        //Mensaje de exito o error
-        if ($resultado) {
-            //Redireccionar al usuario
-            header('Location: /admin/propiedades/crear.php?resultado=1');
-        }
+        $propiedad->guardar('propiedades');
     }
 }
 
@@ -55,19 +42,21 @@ incluirTemplate('header');
 <main class="contenedor seccion">
     <h1>Crear</h1>
     <a href="/admin" class="boton boton-verde">Volver</a>
-    <?php if (intval($resultadoM) === 1) { ?>
+    <?php
+    $mensaje = mostrarNotificacion(intval($resultadoM));
+    if ($mensaje && intval($resultadoM) === 1) : ?>
         <div class="alerta exito remover">
-            El anuncio se ha creado con exito
+            <?php echo s($mensaje); ?>
         </div>
-    <?php } ?>
+    <?php endif; ?>
     <?php foreach ($errores as $error) : ?>
         <div class="alerta error remover">
             <?php echo $error; ?>
         </div>
     <?php endforeach ?>
-    <form class="formulario" method="POST" enctype="multipart/form-data">
+    <form class="formulario" action="/admin/propiedades/crear.php" method="POST" enctype="multipart/form-data">
        <?php include '../../includes/templates/formulario_propiedades.php'; ?>
-        <input type="submit" class="boton boton-verde crear-propiedad" value="Crear Propiedad">
+        <input type="submit" class="boton boton-verde crear" value="Crear Propiedad">
     </form>
 </main>
 <script type="module" src="../../public/build/js/crear.js"></script>

@@ -12,6 +12,8 @@ $auth = $_SESSION['login'] ?? false;
     <a href="/blog.php">Blogs</a>
     <a href="/contacto.php">Contactos</a>
     <?php if ($auth) : ?>
+        <a href="/admin">Propiedades</a>
+        <a href="/admin/vendedores/vendedores.php">Vendedores</a>
         <a href="/cerrar-sesion.php">Cerrar Sesión</a>
     <?php endif ?>
 </nav>

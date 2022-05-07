@@ -3,6 +3,8 @@
 require 'includes/app.php';
 $db = conectarDB();
 
+$emailPlaceHolder = '';
+
 $errores = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -32,10 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location: /admin');
             }
             else{
+                $emailPlaceHolder = $_POST['email'];
                 $errores[] = "Correo o Contraseña incorrecta";
             }
         }
         else{
+            $emailPlaceHolder = $_POST['email'];
             $errores[] = "Correo o Contraseña incorrecta";
         }
     }
@@ -54,11 +58,11 @@ incluirTemplate('header');
             <?php echo $error; ?>
         </div>
     <?php endforeach; ?>
-    <form method="POST" class="formulario">
+    <form method="POST" class="formulario formulario-login">
         <fieldset>
             <legend>Correo y Contraseña</legend>
             <label for="email">E-mail</label>
-            <input type="email" name="email" placeholder="Tu Email" id="email" required>
+            <input type="email" name="email" placeholder="Tu Email" id="email" value="<?php echo $emailPlaceHolder; ?>" required>
             <label for="password">Contraseña</label>
             <input type="password" name="password" placeholder="Tu contraseña" id="password" required>
         </fieldset>
